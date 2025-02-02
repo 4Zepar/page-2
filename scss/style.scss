@@ -289,7 +289,7 @@ $akcent: #D71E09;
 
         .rent {
             width: 100%;
-            background-image: url(../images/bg.png);
+            background-image: url(../images/bg.webp);
             background-size: cover;
             background-position: center;
             display: flex;
@@ -570,6 +570,13 @@ $akcent: #D71E09;
             }
         }
 
+        @media (max-width: 425px) {
+            .rent-description {
+                .description-title {
+                    width: 70%;
+                }
+            }
+        }
         @media (max-width: 375px) {
             .rent-description {
                 .description-title {
@@ -975,7 +982,7 @@ $akcent: #D71E09;
                         // grid-column: 1;
                         width: 100%;
                         height: calc(var(--index) * 20);
-                        background-image: url(../images/bg.png);
+                        background-image: url(../images/bg.webp);
                         background-position: center;
                         background-size: cover;
                         border-radius: calc(var(--index) * .6);
@@ -1006,7 +1013,7 @@ $akcent: #D71E09;
                                 width: 100%;
                                 flex-grow: 1;
                                 height: calc(var(--index) * 2);
-                                background-image: url(../images/bg.png);
+                                background-image: url(../images/bg.webp);
                                 background-position: center;
                                 background-size: cover;
                                 border-radius: calc(var(--index) * .6);
@@ -1029,7 +1036,7 @@ $akcent: #D71E09;
                             flex-direction: row;
 
                             .side-marker {
-                                writing-mode:sideways-lr;
+                                writing-mode: sideways-lr;
                             }
 
                             .side-images {
@@ -1225,22 +1232,52 @@ $akcent: #D71E09;
                     flex-wrap: wrap;
 
                     &__elem {
-                        flex-grow: 1;
                         display: flex;
+                        flex-basis: 40%;
+                        flex-grow: 1;
+                        flex-shrink: 1;
+                        // flex: 1 1 40%;
+                        flex-direction: column;
                         justify-content: space-between;
-                        align-items: center;
+                        align-items: flex-start;
                         gap: calc(var(--index) * 1);
                         background-color: #171717;
                         padding: calc(var(--index) * 1);
                         border-radius: calc(var(--index) * .6);
                         font-size: calc(var(--index) * .65);
 
-                        .elem-marker {
-                            color: $akcent;
+                        .elem-title {
+                            display: flex;
+                            justify-content: space-between;
+                            width: 100%;
+
+                            
+                            .elem-marker {
+                                color: $akcent;
+                                cursor: pointer;
+                                user-select: none;
+                                writing-mode:vertical-lr;
+                            }
+                        }
+
+                        .elem-info {
+                            display: flex;
+                            display: none;
+                            background-color: #2b2b2d;
+                            line-height: calc(var(--index) * 1);
+                            border-radius: calc(var(--index) * .6);
+                            padding: calc(var(--index) * .6);
                         }
                     }
                 }
 
+                @media (max-width: 625px) {
+                    .faq-cards {
+                        &__elem {
+                            flex-basis: 100%;
+                        }
+                    }
+                }
                 @media (max-width: 560px) {
                     .faq-cards {
                         &__elem {

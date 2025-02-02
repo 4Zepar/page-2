@@ -41,11 +41,22 @@ document.querySelector(".play-button").addEventListener('click', (e) => {
     }
 });
 
-// function playVideo() {
-//     let preview = document.querySelector(".video-preview");
-//     let video = document.querySelector("#video");
 
-//     preview.style.display = "none"; // Скрываем обложку
-//     video.style.display = "block"; // Показываем видео
-//     video.play(); // Запускаем видео
-// }
+
+
+let faqCards = document.querySelectorAll('.faq-cards__elem');
+
+faqCards.forEach(card => {
+    let marker = card.querySelector('.elem-marker');
+    let info = card.querySelector('.elem-info');
+
+    marker.addEventListener('click', () => {
+        if (info.style.display === "none" || info.style.display === "") {
+            info.style.display = "flex";
+            marker.style.writingMode = "sideways-rl";
+        } else {
+            info.style.display = "none";
+            marker.style.writingMode = "vertical-lr";
+        }
+    });
+});
